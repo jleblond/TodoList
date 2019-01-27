@@ -3,8 +3,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Create Task Form... -->
-    <div class="panel-body">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Tasks List') }}</div>
+
+
+                    <div class="card-body">
+<!-- Create Task Form... -->
+ <div class="panel-body">
         <!-- Display Validation Errors -->
         @include('common.errors')
 
@@ -36,7 +45,7 @@
     @if (count($tasks) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
-                Current Tasks
+                
             </div>
 
             <div class="panel-body">
@@ -44,7 +53,7 @@
 
                     <!-- Table Headings -->
                     <thead>
-                        <th>Task</th>
+                        <th>Tasks</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -73,4 +82,19 @@
             </div>
         </div>
     @endif
+</div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+   
 @endsection

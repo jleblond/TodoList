@@ -17,12 +17,11 @@
 
 
 
-// use App\Task;
-// use Illuminate\Http\Request;
-
-
-
+Route::auth();
 
 Route::get('/', 'TasksController@index');
 Route::post('/', 'TasksController@store');
 Route::delete('/{id}', ['uses' =>'TasksController@destroy', 'as'=>'routeDestroyTask']);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
