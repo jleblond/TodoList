@@ -24,7 +24,21 @@ class TasksRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
+            'name' => 'required|max:255'
         ];
     }
+
+
+     /**
+     * Custom message for validation
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'Task name is required!'
+        ];
+    }
+
 }
