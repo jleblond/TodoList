@@ -8,10 +8,13 @@ use App\Repositories\Repository;
 use App\Task;
 
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\TasksRequest;
+
+use Illuminate\Support\Facades\Auth;
 
 
 class TasksRepository extends Repository implements RepositoryInterface
@@ -45,9 +48,10 @@ class TasksRepository extends Repository implements RepositoryInterface
         }
         else
         {
-            $task = new Task;
-            $task->name = $data->name;
-            $task->save();
+            Task::create([
+                'name' => $data->name,
+                'user_id' => Auth::user()->id
+            ]);
     
             return redirect('/');
 
@@ -66,7 +70,8 @@ class TasksRepository extends Repository implements RepositoryInterface
         return redirect('/');
     }
 
-    // public function show($id)
-    // {
-    // }
+    public function show($id)
+    {
+
+    }
 }
