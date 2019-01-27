@@ -48,10 +48,14 @@ class TasksRepository extends Repository implements RepositoryInterface
         }
         else
         {
-            Task::create([
-                'name' => $data->name,
-                'user_id' => Auth::user()->id
-            ]);
+            $task = new Task;
+            $task->name = $data->name;
+            if(Auth::check())
+            {
+                $task->user_id = Auth::user()->id;
+            }
+            $task->save();
+
     
             return redirect('/');
 

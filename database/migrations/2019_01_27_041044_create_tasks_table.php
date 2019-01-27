@@ -18,12 +18,12 @@ class CreateTasksTable extends Migration
             $table->string('name');
             $table->timestamps();
 
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->nullable()->unsigned();
 			$table->foreign('user_id')
 				  ->references('id')
 				  ->on('users')
-				  ->onDelete('restrict')
-				  ->onUpdate('restrict');
+				  ->onDelete('set null');
+				//   ->onUpdate('restrict');
         });
     }
 
