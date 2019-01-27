@@ -54,6 +54,7 @@
                     <!-- Table Headings -->
                     <thead>
                         <th>Tasks</th>
+                        <th>Created by</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -64,6 +65,14 @@
                                 <!-- Task Name -->
                                 <td class="table-text">
                                     <div>{{ $task->name }}</div>
+                                </td>
+
+                                <td>
+                                    <div>
+                                        @if($task->user_id != null)
+                                            {{ $task->user->name }}
+                                        @endif
+                                    </div>
                                 </td>
 
                                  <!-- Delete Button -->
