@@ -23,6 +23,6 @@
 
 
 
-Route::get('/', 'TasksController@create');
+Route::get('/', 'TasksController@index');
 Route::post('/', 'TasksController@store');
 Route::delete('/{id}', ['uses' =>'TasksController@destroy', 'as'=>'routeDestroyTask']);
