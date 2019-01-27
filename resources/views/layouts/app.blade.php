@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/desktop.css') }}" rel="stylesheet"> 
+    <!-- <link rel="stylesheet" media='screen and (min-width: 1025px)' href="{{ asset('css/desktop.css')}}" />  -->
+
+
 </head>
 <body>
     <div id="app">

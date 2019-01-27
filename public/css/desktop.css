@@ -1,0 +1,23 @@
+.panel-body{
+    position:relative;
+    margin: 0% 5% 10% 5%;
+}
+
+.form-horizontal{
+   position: relative;
+   margin-top: 10%;
+   margin-bottom: 20%;
+   left:15%;
+}
+
+#btn-addtask{
+    position: relative;
+    left: 25%;
+}
+
+
+
+/* .
+panel-default{
+
+} */
