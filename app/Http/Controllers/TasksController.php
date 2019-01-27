@@ -17,7 +17,7 @@ class TasksController extends Controller
     /**
      * Display All Tasks
      */
-    public function getTasks(){
+    public function create(){
         $tasks = Task::orderBy('created_at', 'asc')->get();
     
         return view('tasks', [
@@ -28,7 +28,7 @@ class TasksController extends Controller
     /**
      * Add A New Task
      */
-    public function postTasks(TasksRequest $request) {
+    public function store(TasksRequest $request) {
 
         $validator = Validator::make(Input::all(), $request->rules());
 
@@ -51,7 +51,11 @@ class TasksController extends Controller
     
     }
 
-    public function deleteTasks($id)
+        
+    /**
+     * Remove the specified Task
+     */
+    public function destroy($id)
     {
         Task::findOrFail($id)->delete();
 
