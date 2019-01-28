@@ -50,13 +50,23 @@
 
             <div class="panel-body">
                 <table class="table table-striped task-table">
+                        <col width="150">
+                        <col width="100">
+                        <col width="50">
+                        @guest
+                        @else
+                        <col width="50">
+                        @endguest
 
                     <!-- Table Headings -->
                     <thead>
                         <th>Tasks</th>
                         <th>Created by</th>
                         <th>&nbsp;</th>
+                        @guest
+                        @else
                         <th>&nbsp;</th>
+                        @endguest
                     </thead>
 
                     <!-- Table Body -->
@@ -91,23 +101,24 @@
                                           {{ csrf_field() }}
                                          {{ method_field('GET') }}
 
-                                        <button>Edit Task</button>
+                                        <button>Edit</button>
                                     </form>
                                 </td>
 
                                  <!-- Delete Button -->
-                                 <td>
+                    
                                  @guest
                                  @else
+                                 <td>
                                     <form action="/{{ $task->id }}" method="POST">
                                           {{ csrf_field() }}
                                          {{ method_field('DELETE') }}
 
-                                        <button>Delete Task</button>
+                                        <button>Delete</button>
                                     </form>
+                                </td>
                                  @endguest
                                      
-                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
