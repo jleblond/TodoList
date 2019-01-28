@@ -48,9 +48,10 @@
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="done" id="done" {{ ($task->done) ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="hidden" name="done"  value="0">
+                                    <input class="form-check-input" type="checkbox" name="done" id="done" value="1" {{ ($task->done) ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
+                                    <label class="form-check-label" for="done">
                                         {{ __('Mark as completed?') }}
                                     </label>
                                 </div>

@@ -73,8 +73,6 @@ class TasksRepository extends Repository implements RepositoryInterface
 
 
 
-
-
     public function show($id)
     {
         $task = Task::findOrFail($id);
@@ -86,25 +84,19 @@ class TasksRepository extends Repository implements RepositoryInterface
 
     public function update($data, $id)
     {
-        // $task = Task::where('id', '=', $id)->first();
+        $task = Task::find($id);
 
 
-        // // $task = Task::findOrFail($id);
+        if($data['description']  != null) {
+            $task->description = $data['description'];
+        }
+        else{
+            $task->description = "";
+        }
 
-        // // /**
-        // //  * Edit data here
-        // //  */
-        // // if(! $task){
-        // //     $this->create($data);
-        // // }
+        $task->done = $data['done'];
 
-        //  $task->description = $data['description'];
-        //     $task->save();
-
-         $task = Task::findOrFail($id);
-        // $task->description = $data;
-        // $task->save();
-
+        $task->save();
 
 
 

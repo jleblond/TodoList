@@ -68,25 +68,8 @@ class TasksController extends Controller
      */
     public function update(TasksRequest $request, $id)
     {
-        //return view('/welcome');
 
-
-        $task = Task::find($id);
-        $task->description = $request->description;
-
-        if($request->done != null)
-        {
-            $task->done = true;
-        }
-        else
-        {
-            $task->done = false;
-        }
-       
-        $task->save();
-
-
-        return $this->tasksRepository->update($request->all, $id);
+        return $this->tasksRepository->update($request->all(), $id);
     }
 
 

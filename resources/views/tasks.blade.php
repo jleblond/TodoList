@@ -65,7 +65,16 @@
                             <tr>
                                 <!-- Task Name -->
                                 <td class="table-text">
-                                    <div>{{ $task->name }}</div>
+                                    <div>
+                                        @if($task->done)
+                                        <strike>
+                                        {{ $task->name }}
+                                        </strike>
+                                        @else
+                                        {{ $task->name }}
+                                        @endif
+                                        
+                                    </div>
                                 </td>
 
                                 <td>
