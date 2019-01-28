@@ -56,6 +56,7 @@
                         <th>Tasks</th>
                         <th>Created by</th>
                         <th>&nbsp;</th>
+                        <th>&nbsp;</th>
                     </thead>
 
                     <!-- Table Body -->
@@ -75,14 +76,28 @@
                                     </div>
                                 </td>
 
+                                <!-- Edit Button -->
+                                <td>
+                                    <form action="/edit/{{ $task->id }}" method="GET">
+                                          {{ csrf_field() }}
+                                         {{ method_field('GET') }}
+
+                                        <button>Edit Task</button>
+                                    </form>
+                                </td>
+
                                  <!-- Delete Button -->
                                  <td>
-                                     <form action="/{{ $task->id }}" method="POST">
+                                 @guest
+                                 @else
+                                    <form action="/{{ $task->id }}" method="POST">
                                           {{ csrf_field() }}
                                          {{ method_field('DELETE') }}
 
                                         <button>Delete Task</button>
                                     </form>
+                                 @endguest
+                                     
                                  </td>
                             </tr>
                         @endforeach

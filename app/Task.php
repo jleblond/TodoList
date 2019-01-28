@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model 
 {
-    protected $fillable = ['name', 'user_id'];
+    protected $fillable = ['name', 'description', 'user_id', 'done'];
 
 
      /**
@@ -16,4 +16,6 @@ class Task extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+
 }

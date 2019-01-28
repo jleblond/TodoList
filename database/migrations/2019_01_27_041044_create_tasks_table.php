@@ -16,6 +16,7 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('description')->default('');
             $table->timestamps();
 
             $table->integer('user_id')->nullable()->unsigned();
@@ -23,7 +24,10 @@ class CreateTasksTable extends Migration
 				  ->references('id')
 				  ->on('users')
 				  ->onDelete('set null');
-				//   ->onUpdate('restrict');
+                //   ->onUpdate('restrict');
+                
+
+            $table->boolean('done')->default(false);
         });
     }
 

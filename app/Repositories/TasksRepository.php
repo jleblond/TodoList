@@ -63,9 +63,6 @@ class TasksRepository extends Repository implements RepositoryInterface
 
     }
 
-    // public function update($id, array $data)
-    // {
-    // }
 
     public function delete($id)
     {
@@ -74,8 +71,47 @@ class TasksRepository extends Repository implements RepositoryInterface
         return redirect('/');
     }
 
+
+
+
+
     public function show($id)
     {
+        $task = Task::findOrFail($id);
 
+        return view('task_edit', [
+            'task' => $task
+        ]);
     }
+
+    public function update($data, $id)
+    {
+        // $task = Task::where('id', '=', $id)->first();
+
+
+        // // $task = Task::findOrFail($id);
+
+        // // /**
+        // //  * Edit data here
+        // //  */
+        // // if(! $task){
+        // //     $this->create($data);
+        // // }
+
+        //  $task->description = $data['description'];
+        //     $task->save();
+
+         $task = Task::findOrFail($id);
+        // $task->description = $data;
+        // $task->save();
+
+
+
+
+        return view('task_edit', [
+            'task' => $task
+        ]);
+    }
+
+
 }

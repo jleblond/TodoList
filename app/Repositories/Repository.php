@@ -26,7 +26,7 @@ abstract class Repository implements RepositoryInterface
         return $this->model->create($data);
     }
 
-    public function update($id, $data)
+    public function update($data, $id)
     {
         $modelToUpdate = $this->model->find($id);
         $modelToUpdate->update($data);

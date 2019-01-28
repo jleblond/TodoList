@@ -21,7 +21,13 @@ Route::auth();
 
 Route::get('/', 'TasksController@index');
 Route::post('/', 'TasksController@store');
-Route::delete('/{id}', ['uses' =>'TasksController@destroy', 'as'=>'routeDestroyTask']);
+
+Route::delete('/{id}', ['uses' =>'TasksController@destroy', 'as'=>'destroy-task.route']);
+
+Route::get('/edit/{id}', 'TasksController@show');
+Route::post('/edit/{id}', ['uses' =>'TasksController@update', 'as'=>'edit-task.route']);
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
